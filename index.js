@@ -1,5 +1,6 @@
 const shuffle = require("knuth-shuffle").knuthShuffle;
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 var lingo = {
@@ -53,6 +54,8 @@ function generate() {
 
     return phrases;
 }
+
+app.use(cors());
 
 app.get("/", function (req, res) {
     res.send(generate());
