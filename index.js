@@ -39,18 +39,17 @@ allCategories.forEach(function (entry) {
     totalWeight += entry.weight;
 });
 
-function generate() {
-    var phrases = [];
+function ipsum() {
+    var phrases;
 
-    allCategories.forEach(function (entry, index) {
+    allCategories.forEach(function (entry) {
         var selections = Math.round(entry.weight / totalWeight * 100);
         for (var i = 0; i < selections; i++) {
             phrases.push(entry.phrases[Math.floor(Math.random() * entry.phrases.length)]);
         }
     });
 
-    phrases = shuffle(phrases);
-    phrases = phrases.join(" ");
+    phrases = shuffle(phrases).join(" ");
 
     return phrases;
 }
@@ -58,7 +57,7 @@ function generate() {
 app.use(cors());
 
 app.get("/", function (req, res) {
-    res.send(generate());
+    res.send(ipsum());
 });
 
 app.listen(process.env.PORT || 1337);
