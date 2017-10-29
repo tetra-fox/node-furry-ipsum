@@ -1,0 +1,19 @@
+{
+  "name": "node-furry-ipsum",
+  "version": "1.0.0",
+  "description": "A very simple text generator, except it's in node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tetrafox",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tetra-fox/node-furry-ipsum.git"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "knuth-shuffle": "^1.0.1"
+  }
+}
