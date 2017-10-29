@@ -40,7 +40,7 @@ allCategories.forEach(function (entry) {
 });
 
 function ipsum() {
-    var phrases;
+    var phrases = [];
 
     allCategories.forEach(function (entry) {
         var selections = Math.round(entry.weight / totalWeight * 100);
