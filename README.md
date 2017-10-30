@@ -3,6 +3,8 @@ A very simple text generator, except it's in node.
 
 Original furry-ipsum in Nim: [oslerw](https://github.com/oslerw)/[furry-ipsum](https://github.com/oslerw/furry-ipsum)
 
+[Live demo](https://furryipsum.tetrafox.pw/)
+
 ## Usage
 1. Download or clone the repo
 2. Run `npm install` then `node index` in the repo
