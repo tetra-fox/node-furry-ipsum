@@ -49,10 +49,13 @@ app.get("/", function (req, res) {
     });
 
     phrases = shuffle(phrases);
-    
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Content-Type", "text/plain");
-    res.setHeader("owo", "what's this?");
+
+    res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "text/plain",
+        "owo": "what's this?"
+    });
+
     res.send(phrases.join(" "));
 });
 
