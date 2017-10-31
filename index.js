@@ -1,6 +1,5 @@
 const shuffle = require("knuth-shuffle").knuthShuffle;
 const express = require("express");
-const cors = require("cors");
 const app = express();
 
 var lingo = {
@@ -35,29 +34,26 @@ var conventions = {
 var allCategories = [lingo, anatomy, species, roleplay, noises, emoji, conventions];
 var totalWeight = 0;
 
-allCategories.forEach(function (entry) {
-    totalWeight += entry.weight;
+allCategories.forEach(function (category) {
+    totalWeight += category.weight;
 });
 
-function ipsum() {
+app.get("/", function (req, res) {
     var phrases = [];
 
-    allCategories.forEach(function (entry) {
-        var selections = Math.round(entry.weight / totalWeight * 100);
+    allCategories.forEach(function (category) {
+        var selections = Math.round(category.weight / totalWeight * 100);
         for (var i = 0; i < selections; i++) {
-            phrases.push(entry.phrases[Math.floor(Math.random() * entry.phrases.length)]);
+            phrases.push(category.phrases[Math.floor(Math.random() * category.phrases.length)]);
         }
     });
 
-    phrases = shuffle(phrases).join(" ");
-
-    return phrases;
-}
-
-app.use(cors());
-
-app.get("/", function (req, res) {
-    res.send(ipsum());
+    phrases = shuffle(phrases);
+    
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-Type", "text/plain");
+    res.setHeader("owo", "what's this?");
+    res.send(phrases.join(" "));
 });
 
 app.listen(process.env.PORT || 1337);

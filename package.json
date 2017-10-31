@@ -13,7 +13,6 @@
     "url": "https://github.com/tetra-fox/node-furry-ipsum.git"
   },
   "dependencies": {
-    "cors": "^2.8.4",
     "express": "^4.16.2",
     "knuth-shuffle": "^1.0.1"
   }
