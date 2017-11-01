@@ -75,7 +75,7 @@ app.get("/", function (req, res) {
     });
 
     // check if p is a valid int
-    if (!isNaN(req.query.p)) {
+    if (!isNaN(req.query.p) && parseInt(req.query.p) <= 256) {
         // initialize paragraphs string
         var paragraphs = "";
 
